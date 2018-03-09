@@ -129,7 +129,7 @@ def make_playlist(playlist_name):
         part = 'snippet',
         body = {'snippet':{'title':playlist_name}}
     ).execute()
-    print('Playlist Made {}. DONE'.format(playlist_insert_response['id']))
+    print('Playlist ID {}. DONE'.format(playlist_insert_response['id']))
     return playlist_insert_response['id']
 
 # video id, playlist id -> adds video to playlist
@@ -192,4 +192,4 @@ if __name__ == '__main__':
   # running in production *do not* leave this option enabled.
   os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
   youtube = get_authenticated_service()
-  app('Cooking', 'channels/cooking.csv')
+  app('Home Improvement', 'channels/interior_design.csv')
