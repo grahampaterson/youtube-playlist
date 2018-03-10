@@ -6,7 +6,7 @@ Takes a bunch of channel urls & playlists urls and compiles them into a single y
 
 TODO
 --------------
-Convert to online app
+Convert to web server app
 
 BUGLIST
 --------------

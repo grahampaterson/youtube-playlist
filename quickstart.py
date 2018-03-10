@@ -16,7 +16,7 @@ comic_channel = list(set(['UU4kjDjhexSVuC8JWk4ZanFw', 'UUmA-0j6DRVQWo4skl8Otkiw'
 interior = ['https://www.youtube.com/channel/UCXvzpK4eKUJysEZ42zjTUdw','https://www.youtube.com/channel/UCq6H4g9eVY9WxoboCFd0iRA','https://www.youtube.com/user/HGTV']
 
 # CONSTANTS
-playlist_length = 1000
+playlist_length = 500
 channel_limit = 150 #number of videos to take from a single channel
 
 # The CLIENT_SECRETS_FILE variable specifies the name of a file that contains
@@ -192,4 +192,4 @@ if __name__ == '__main__':
   # running in production *do not* leave this option enabled.
   os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
   youtube = get_authenticated_service()
-  app('Home Improvement', 'channels/interior_design.csv')
+  app('Cartoons Channel', 'channels/animations.csv')
