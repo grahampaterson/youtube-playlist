@@ -44,6 +44,8 @@ def index():
   maxResults=50
   ).execute()
 
+  return flask.render_template('index.html')
+
   return flask.jsonify(playlistitems_list_request)
 
   return channels_list_by_username(client,
@@ -52,9 +54,11 @@ def index():
 
 
 # list of youtube urls, playlist name -> makes youtube playlist
-@app.route('/create-playlist')
+@app.route('/create-playlist', methods=['GET', 'POST'])
 def create_playlist():
     # TODO make sure this is a get request
+    if flask.request.method != 'POST':
+        return flask.redirect(flask.url_for('index'))
 
     if 'credentials' not in flask.session:
         return flask.redirect('authorize')
@@ -63,8 +67,8 @@ def create_playlist():
     credentials = google.oauth2.credentials.Credentials(
         **flask.session['credentials'])
 
-    youtube = googleapiclient.discovery.build(
-        API_SERVICE_NAME, API_VERSION, credentials=credentials)
+    print(flask.request.form['playlists'])
+    return flask.redirect(flask.url_for('index'))
 
 
 @app.route('/authorize')
