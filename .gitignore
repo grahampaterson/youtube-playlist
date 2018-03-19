@@ -2,5 +2,5 @@ client_secret.json
 client_secret_web.json
 env/
 .DS_Store
-
+__pycache__/
 .DS_Store
