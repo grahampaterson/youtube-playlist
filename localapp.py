@@ -16,8 +16,8 @@ comic_channel = list(set(['UU4kjDjhexSVuC8JWk4ZanFw', 'UUmA-0j6DRVQWo4skl8Otkiw'
 interior = ['https://www.youtube.com/channel/UCXvzpK4eKUJysEZ42zjTUdw','https://www.youtube.com/channel/UCq6H4g9eVY9WxoboCFd0iRA','https://www.youtube.com/user/HGTV']
 
 # CONSTANTS
-playlist_length = 500
-channel_limit = 150 #number of videos to take from a single channel
+PLAYLIST_LENGTH = 500
+CHANNEL_LIMIT = 150 #number of videos to take from a single channel
 
 # The CLIENT_SECRETS_FILE variable specifies the name of a file that contains
 # the OAuth 2.0 information for this application, including its client_id and
@@ -93,7 +93,7 @@ def get_playlist_items(playlist_id):
     )
     video_ids = []
 
-    while playlistitems_list_request and (len(video_ids) < channel_limit):
+    while playlistitems_list_request and (len(video_ids) < CHANNEL_LIMIT):
         playlistitems_list_response = playlistitems_list_request.execute()
 
         # Print information about each video.
@@ -167,7 +167,7 @@ def merge_lists(all_lists):
     result = []
     counter = 0
     empty_counter = True
-    while empty_counter and (len(result) < playlist_length):
+    while empty_counter and (len(result) < PLAYLIST_LENGTH):
         empty_counter = False
         for single_list in all_lists:
             try:
