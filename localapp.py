@@ -203,5 +203,5 @@ if __name__ == '__main__':
   # running in production *do not* leave this option enabled.
   os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
   youtube = get_authenticated_service()
-  # app('Cartoons Channel', 'channels/animations.csv')
-  make_channels('channels/')
+  app('Educational', 'channels/educational.csv')
+  # make_channels('channels/')
