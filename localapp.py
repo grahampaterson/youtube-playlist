@@ -180,14 +180,15 @@ def merge_lists(all_lists):
     print('DONE')
     return result
 
-# dict channel_name,csv -> ...
+# dict channel_name,csv -> listofCSVs
 def make_channels(path_folder):
     pathlist = Path(path_folder).glob('*.csv')
     for path in pathlist:
         # because path is object not string
-        print(str(path))
+        playlist_name = str(path)[9:-4].capitalize()
+        csv_path = str(path)
+        app(playlist_name, csv_path)
     return []
-
 
 # main program flow
 def app(playlist_name, channel_csv):
@@ -200,7 +201,7 @@ def app(playlist_name, channel_csv):
 if __name__ == '__main__':
   # When running locally, disable OAuthlib's HTTPs verification. When
   # running in production *do not* leave this option enabled.
-  # os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-  # youtube = get_authenticated_service()
+  os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+  youtube = get_authenticated_service()
   # app('Cartoons Channel', 'channels/animations.csv')
   make_channels('channels/')
