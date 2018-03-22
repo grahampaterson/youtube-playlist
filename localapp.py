@@ -87,6 +87,9 @@ def channels_to_playlists(channel_list):
 # playist id -> list of video_ids
 def get_playlist_items(playlist_id):
     # Retrieve the list of videos uploaded to the authenticated user's channel.
+    if playlist_id is None:
+        print(playlist_id)
+        return []
     playlistitems_list_request = youtube.playlistItems().list(
     playlistId=playlist_id,
     part='snippet',
